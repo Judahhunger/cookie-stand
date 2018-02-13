@@ -12,6 +12,8 @@ var pike = {
     for( var i = 0; i < storeHours.length; i ++){
       this.customersPerHour.push(Math.floor(Math.random() * (65 - 23 +1) + 23));
       this.cookiesPerHour.push(this.customersPerHour[i] * 6.3);
+      this.totalCustomers = this.customersPerHour[i] + this.totalCustomers;
+      this.totalCookies = this.cookiesPerHour[i] + this.totalCookies;
     }
   },
   // cookiesSoldHour: function(){
