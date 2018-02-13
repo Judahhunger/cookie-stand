@@ -8,16 +8,60 @@ var pike = {
   averageCookies: 6.3,
   customersPerHour: [],
   cookiesSoldHour: [],
+  totalCustomers: 0,
+  totalCookies: 0,
   makeCustomers: function(){
     for( var i = 0; i < storeHours.length; i ++){
-      this.customersPerHour.push(Math.floor(Math.random() * (65 - 23 +1) + 23));
-      this.cookiesPerHour.push(this.customersPerHour[i] * 6.3);
+      this.customersPerHour.push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers +1) + this.minCustomers));
+      this.cookiesSoldHour.push(Math.floor(this.customersPerHour[i] * this.averageCookies));
       this.totalCustomers = this.customersPerHour[i] + this.totalCustomers;
-      this.totalCookies = this.cookiesPerHour[i] + this.totalCookies;
+      this.totalCookies = this.cookiesSoldHour[i] + this.totalCookies;
     }
   },
   render: function(){
-    
+    this.makeCustomers();
+    var ul = document.getElementById('first-ave');
+    for( var i = 0; i < storeHours.length; i++){
+      var liEL = document.createElement('li');
+      liEL.textContent = storeHours[i] + ' : ' + this.customersPerHour[i] + ' customers and with:' + this.cookiesSoldHour[i] + ' cookies sold.' ;
+      ul.appendChild(liEL);
+    }
+    var liEl = document.createElement('li');
+    liEl.textContent = 'Totals: ' + this.totalCustomers + ' customers and :' + this.totalCookies + ' total cookies.';
+    ul.appendChild(liEl);
   }
-
 };
+
+
+var seaTac = {
+  location: 'SeaTac Airport',
+  minCustomers: 3,
+  maxCustomers: 24,
+  averageCookies: 1.2,
+  customersPerHour: [],
+  cookiesSoldHour: [],
+  totalCustomers: 0,
+  totalCookies: 0,
+  makeCustomers: function(){
+    for( var i = 0; i < storeHours.length; i ++){
+      this.customersPerHour.push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers +1) + this.minCustomers));
+      this.cookiesSoldHour.push(Math.floor(this.customersPerHour[i] * this.averageCookies));
+      this.totalCustomers = this.customersPerHour[i] + this.totalCustomers;
+      this.totalCookies = this.cookiesSoldHour[i] + this.totalCookies;
+    }
+  },
+  render: function(){
+    this.makeCustomers();
+    var ul = document.getElementById('airport');
+    for( var i = 0; i < storeHours.length; i++){
+      var liEL = document.createElement('li');
+      liEL.textContent = storeHours[i] + ' : ' + this.customersPerHour[i] + ' customers and with:' + this.cookiesSoldHour[i] + ' cookies sold.' ;
+      ul.appendChild(liEL);
+    }
+    var liEl = document.createElement('li');
+    liEl.textContent = 'Totals: ' + this.totalCustomers + ' customers and :' + this.totalCookies + ' total cookies.';
+    ul.appendChild(liEl);
+  }
+};
+pike.render();
+seaTac.render();
