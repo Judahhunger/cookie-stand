@@ -144,7 +144,6 @@ var alki = {
     }
   },
   render: function(){
-    this.makeCustomers();
     var ul = document.getElementById('alki-beach');
     for( var i = 0; i < storeHours.length; i++){
       var liEL = document.createElement('li');
