@@ -11,7 +11,7 @@ var pike = {
   totalCustomers: 0,
   totalCookies: 0,
   makeCustomers: function(){
-    for( var i = 0; i < storeHours.length; i ++){
+    for( var i = 0; i < storeHours.length; i++){
       this.customersPerHour.push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers +1) + this.minCustomers));
       this.cookiesSoldHour.push(Math.floor(this.customersPerHour[i] * this.averageCookies));
       this.totalCustomers = this.customersPerHour[i] + this.totalCustomers;
@@ -43,7 +43,7 @@ var seaTac = {
   totalCustomers: 0,
   totalCookies: 0,
   makeCustomers: function(){
-    for( var i = 0; i < storeHours.length; i ++){
+    for( var i = 0; i < storeHours.length; i++){
       this.customersPerHour.push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers +1) + this.minCustomers));
       this.cookiesSoldHour.push(Math.floor(this.customersPerHour[i] * this.averageCookies));
       this.totalCustomers = this.customersPerHour[i] + this.totalCustomers;
@@ -74,7 +74,7 @@ var seattleCenter = {
   totalCustomers: 0,
   totalCookies: 0,
   makeCustomers: function(){
-    for( var i = 0; i < storeHours.length; i ++){
+    for( var i = 0; i < storeHours.length; i++){
       this.customersPerHour.push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers +1) + this.minCustomers));
       this.cookiesSoldHour.push(Math.floor(this.customersPerHour[i] * this.averageCookies));
       this.totalCustomers = this.customersPerHour[i] + this.totalCustomers;
@@ -105,7 +105,7 @@ var capitolHill = {
   totalCustomers: 0,
   totalCookies: 0,
   makeCustomers: function(){
-    for( var i = 0; i < storeHours.length; i ++){
+    for( var i = 0; i < storeHours.length; i++){
       this.customersPerHour.push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers +1) + this.minCustomers));
       this.cookiesSoldHour.push(Math.floor(this.customersPerHour[i] * this.averageCookies));
       this.totalCustomers = this.customersPerHour[i] + this.totalCustomers;
@@ -136,7 +136,7 @@ var alki = {
   totalCustomers: 0,
   totalCookies: 0,
   makeCustomers: function(){
-    for( var i = 0; i < storeHours.length; i ++){
+    for( var i = 0; i < storeHours.length; i++){
       this.customersPerHour.push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers +1) + this.minCustomers));
       this.cookiesSoldHour.push(Math.floor(this.customersPerHour[i] * this.averageCookies));
       this.totalCustomers = this.customersPerHour[i] + this.totalCustomers;
