@@ -16,6 +16,8 @@ var pike = {
       this.totalCookies = this.cookiesPerHour[i] + this.totalCookies;
     }
   },
-  // cookiesSoldHour: function(){
+  render: function(){
+    
+  }
 
 };
