@@ -63,5 +63,102 @@ var seaTac = {
     ul.appendChild(liEl);
   }
 };
+
+var seattleCenter = {
+  location: 'Seattle Center House',
+  minCustomers: 11,
+  maxCustomers: 38,
+  averageCookies: 3.7,
+  customersPerHour: [],
+  cookiesSoldHour: [],
+  totalCustomers: 0,
+  totalCookies: 0,
+  makeCustomers: function(){
+    for( var i = 0; i < storeHours.length; i ++){
+      this.customersPerHour.push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers +1) + this.minCustomers));
+      this.cookiesSoldHour.push(Math.floor(this.customersPerHour[i] * this.averageCookies));
+      this.totalCustomers = this.customersPerHour[i] + this.totalCustomers;
+      this.totalCookies = this.cookiesSoldHour[i] + this.totalCookies;
+    }
+  },
+  render: function(){
+    this.makeCustomers();
+    var ul = document.getElementById('center-house');
+    for( var i = 0; i < storeHours.length; i++){
+      var liEL = document.createElement('li');
+      liEL.textContent = storeHours[i] + ' : ' + this.customersPerHour[i] + ' customers and with:' + this.cookiesSoldHour[i] + ' cookies sold.' ;
+      ul.appendChild(liEL);
+    }
+    var liEl = document.createElement('li');
+    liEl.textContent = 'Totals: ' + this.totalCustomers + ' customers and :' + this.totalCookies + ' total cookies.';
+    ul.appendChild(liEl);
+  }
+};
+
+var capitolHill = {
+  location: 'Capitol Hill',
+  minCustomers: 20,
+  maxCustomers: 38,
+  averageCookies: 2.3,
+  customersPerHour: [],
+  cookiesSoldHour: [],
+  totalCustomers: 0,
+  totalCookies: 0,
+  makeCustomers: function(){
+    for( var i = 0; i < storeHours.length; i ++){
+      this.customersPerHour.push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers +1) + this.minCustomers));
+      this.cookiesSoldHour.push(Math.floor(this.customersPerHour[i] * this.averageCookies));
+      this.totalCustomers = this.customersPerHour[i] + this.totalCustomers;
+      this.totalCookies = this.cookiesSoldHour[i] + this.totalCookies;
+    }
+  },
+  render: function(){
+    this.makeCustomers();
+    var ul = document.getElementById('cap-hill');
+    for( var i = 0; i < storeHours.length; i++){
+      var liEL = document.createElement('li');
+      liEL.textContent = storeHours[i] + ' : ' + this.customersPerHour[i] + ' customers and with:' + this.cookiesSoldHour[i] + ' cookies sold.' ;
+      ul.appendChild(liEL);
+    }
+    var liEl = document.createElement('li');
+    liEl.textContent = 'Totals: ' + this.totalCustomers + ' customers and :' + this.totalCookies + ' total cookies.';
+    ul.appendChild(liEl);
+  }
+};
+
+var alki = {
+  location: 'Alki Beach',
+  minCustomers: 2,
+  maxCustomers: 16,
+  averageCookies: 4.6,
+  customersPerHour: [],
+  cookiesSoldHour: [],
+  totalCustomers: 0,
+  totalCookies: 0,
+  makeCustomers: function(){
+    for( var i = 0; i < storeHours.length; i ++){
+      this.customersPerHour.push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers +1) + this.minCustomers));
+      this.cookiesSoldHour.push(Math.floor(this.customersPerHour[i] * this.averageCookies));
+      this.totalCustomers = this.customersPerHour[i] + this.totalCustomers;
+      this.totalCookies = this.cookiesSoldHour[i] + this.totalCookies;
+    }
+  },
+  render: function(){
+    this.makeCustomers();
+    var ul = document.getElementById('alki-beach');
+    for( var i = 0; i < storeHours.length; i++){
+      var liEL = document.createElement('li');
+      liEL.textContent = storeHours[i] + ' : ' + this.customersPerHour[i] + ' customers and with:' + this.cookiesSoldHour[i] + ' cookies sold.' ;
+      ul.appendChild(liEL);
+    }
+    var liEl = document.createElement('li');
+    liEl.textContent = 'Totals: ' + this.totalCustomers + ' customers and :' + this.totalCookies + ' total cookies.';
+    ul.appendChild(liEl);
+  }
+};
+
 pike.render();
 seaTac.render();
+seattleCenter.render();
+capitolHill.render();
+alki.render();
