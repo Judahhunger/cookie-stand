@@ -96,22 +96,18 @@ function makeFooterOnTable(){
   patsCookieShopTable.appendChild(trEl);
 }
 
-// function renderAllShops(){
-//   for(var i = 0; i < PatsCookieShop.allStores.length; i ++){
-//     return PatsCookieShop.allStores[i].render();
-//   }
-// }
-var pike = new PatsCookieShop('1st and Pike', 23, 65, 6.3);
-var seaTac = new PatsCookieShop('SeaTac Airport', 3, 24, 1.2);
-var seattleCenter = new PatsCookieShop('Seattle Center', 11, 38, 3.7);
-var capHill = new PatsCookieShop('Capitol Hll', 20, 38, 2.3);
-var alki = new PatsCookieShop('Alki', 2, 16, 4.6);
+function renderAllShops(){
+  for(var i = 0; i < PatsCookieShop.allStores.length; i ++){
+    PatsCookieShop.allStores[i].render();
+  }
+}
+new PatsCookieShop('1st and Pike', 23, 65, 6.3);
+new PatsCookieShop('SeaTac Airport', 3, 24, 1.2);
+new PatsCookieShop('Seattle Center', 11, 38, 3.7);
+new PatsCookieShop('Capitol Hll', 20, 38, 2.3);
+new PatsCookieShop('Alki', 2, 16, 4.6);
 
 makeHeaderRow();
-pike.render();
-seaTac.render();
-seattleCenter.render();
-capHill.render();
-alki.render();
+renderAllShops();
 makeFooterOnTable();
 
