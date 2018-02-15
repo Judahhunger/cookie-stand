@@ -111,7 +111,7 @@ function makeNewCookieShop(event){
   var newAverageCookies = parseInt(event.target.averageCookies.value);
 
   new PatsCookieShop(newAddress, newMinCustomers, newMaxCusttomers, newAverageCookies);
-  storeForm.innerHTML = '';
+  patsCookieShopTable.innerHTML = '';
 
   makeHeaderRow();
   renderAllShops();
