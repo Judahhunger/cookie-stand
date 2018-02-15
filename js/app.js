@@ -2,6 +2,7 @@
 //Global Vars
 var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 var patsCookieShopTable = document.getElementById('shopTable');
+var storeForm = document.getElementById('store-form');
 // Object constructor
 function PatsCookieShop(address, minCustomers, maxCustomers, averageCookies){
   this.address = address;
@@ -101,13 +102,29 @@ function renderAllShops(){
     PatsCookieShop.allStores[i].render();
   }
 }
+
+function makeNewCookieShop(event){
+  event.preventDefault();
+  var newAddress = event.target.address.value;
+  var newMinCustomers = parseInt(event.target.minCustomers.value);
+  var newMaxCusttomers = parseInt(event.target.maxCustomers.value);
+  var newAverageCookies = parseInt(event.target.averageCookies.value);
+
+  new PatsCookieShop(newAddress, newMinCustomers, newMaxCusttomers, newAverageCookies);
+  storeForm.innerHTML = '';
+
+  makeHeaderRow();
+  renderAllShops();
+  makeFooterOnTable();
+}
+
 new PatsCookieShop('1st and Pike', 23, 65, 6.3);
 new PatsCookieShop('SeaTac Airport', 3, 24, 1.2);
 new PatsCookieShop('Seattle Center', 11, 38, 3.7);
 new PatsCookieShop('Capitol Hll', 20, 38, 2.3);
 new PatsCookieShop('Alki', 2, 16, 4.6);
+storeForm.addEventListener('submit', makeNewCookieShop);
 
 makeHeaderRow();
 renderAllShops();
 makeFooterOnTable();
-
