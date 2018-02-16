@@ -3,7 +3,7 @@
 var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 var patsCookieShopTable = document.getElementById('shopTable');
 var storeForm = document.getElementById('store-form');
-// Object constructor
+// Object constructor for cookie shop
 function PatsCookieShop(address, minCustomers, maxCustomers, averageCookies){
   this.address = address;
   this.minCustomers = minCustomers;
@@ -15,7 +15,7 @@ function PatsCookieShop(address, minCustomers, maxCustomers, averageCookies){
   this.totalCookies = 0;
   PatsCookieShop.allStores.push(this);
 }
-PatsCookieShop.allStores = [];
+PatsCookieShop.allStores = []; // array for all stores
 PatsCookieShop.prototype.makeCustomersPerHour = function(){ //method used to populate array using random number function.
   for( var i = 0; i < storeHours.length; i++){
     var customersOnHour = makeRandomNum(this.maxCustomers, this.minCustomers);
@@ -24,14 +24,15 @@ PatsCookieShop.prototype.makeCustomersPerHour = function(){ //method used to pop
   }
 };
 PatsCookieShop.prototype.makeCookiesPerHour = function(){
-  this.makeCustomersPerHour();
+  this.makeCustomersPerHour();//calling function to make customers and populate that array so numbers are able to calc
   for( var i = 0; i < storeHours.length; i++){
     var cookiesOnHour = Math.floor(this.customersPerHour[i] * this.averageCookies);
     this.cookiesSoldHour.push(cookiesOnHour);
     this.totalCookies += cookiesOnHour;
   }
 };
-PatsCookieShop.prototype.render = function(){
+///************************NEED TO FIX BELOW***************** */
+PatsCookieShop.prototype.render = function(){//makes each cookies shop row and data.
   this.makeCookiesPerHour();
   var trEl = document.createElement('tr');
   var tdEl = document.createElement('td');
@@ -48,13 +49,13 @@ PatsCookieShop.prototype.render = function(){
   trEl.appendChild(thEL);
   patsCookieShopTable.appendChild(trEl);
 };
-
+///**************** FIX ABOVE************************************** */
 //function to make random number between set values.
 function makeRandomNum(min, max){
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function makeHeaderRow() {
+function makeHeaderRow() { //makes top row with address hours through array and totals for top of table.
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
   thEl.textContent = 'Address';
@@ -69,8 +70,8 @@ function makeHeaderRow() {
   thEl.textContent = 'Totals';
   trEl.appendChild(thEl);
 }
-
-function makeFooterOnTable(){
+///************************NEED TO FIX BELOW***************** */
+function makeFooterOnTable(){ //makes bottom row ***** NEED TO MAKE MORE READABLE ******  
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
   thEl.textContent = 'Totals on the Hour';
@@ -90,6 +91,7 @@ function makeFooterOnTable(){
       trEl.appendChild(thEl);
     }
   }
+  //*****************FIX ABOVE**************************** */
   thEl = document.createElement('th');
   thEl.textContent = 'Total cookies for all Shops ' + grandTotalCookies + ' with Total Customers' + grandTotalCustomers;
   trEl.appendChild(thEl);

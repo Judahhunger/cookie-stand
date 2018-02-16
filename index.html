@@ -24,16 +24,19 @@
 <main>
   <h1>STORE TITLE</h1>
   <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et illo officia qui, corporis, quae dignissimos ipsa recusandae distinctio, nulla eum atque! Quae quam ex pariatur veritatis et hic! Aut, dignissimos?</p>
-  <div class=”container”>
-      <div class=”image-slider-wrapper”>
-          <ul id=”image_slider”>
-              <li><img src="img/family.jpg"></li>
-              <li><img src="img/cutter.jpeg"></li>
-              <li><img src="img/frosted-cookie.jpg"></li>
-              <li><img src=""></li>
-              <li><img src=""></li>
-              <li><img src=""></li>
-          </ul> 
+  <div id="img-slider">
+    <span id="slider-image-1"></span>
+    <span id="slider-image-2"></span>
+    <span id="slider-image-3"></span>
+      <div class="inner-images">
+          <img src="img/family.jpg" class="slider-img" alt="">
+          <img src="img/shirt.jpg" class="slider-img" alt="second">
+          <img src="img/cutter.jpeg" class="slider-img" alt="third">    
+      </div> 
+      <div class="buttons-images">
+        <a href="#slider-image-1" class="slider-rotate"></a>
+        <a href="#slider-image-2" class="slider-rotate"></a>
+        <a href="#slider-image-3" class="slider-rotate"></a>
       </div>
   </div>
   <img src="http://via.placeholder.com/550x400" alt="">
