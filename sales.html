@@ -5,7 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Sam's Cookies</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/sales.css" />
   
 </head>
 <body>
@@ -22,12 +23,9 @@
         <input name="maxCustomers" type="number"/>
   
         <label for="averageCookies">Average cookies sold</label>
-        <input name="averageCookies" type="number" />
+        <input name="averageCookies" type="number" step=".1" />
   
         <button id="add-store">Add new store Data to Table</button>
-  
-  
-  
       </fieldset>
 </form>
   <table id="shopTable">
