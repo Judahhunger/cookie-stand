@@ -77,10 +77,10 @@ function makeFooterOnTable(){
   trEl.appendChild(thEl);
   for(var i in storeHours){ //looking down each hour
     thEl = document.createElement('th');
-    var cookiesMadePerHour = 0;
-    var customerTotalPerHour = 0;
-    var grandTotalCustomers = 0;
-    var grandTotalCookies = 0;
+    var cookiesMadePerHour = 0;// all cookies for all stores on the hour
+    var customerTotalPerHour = 0;// all customers for all stores on the hour
+    var grandTotalCustomers = 0;// total daily customers for the day
+    var grandTotalCookies = 0;// total daily cookies for the day
     for(var j in PatsCookieShop.allStores){//looking down each store created.
       cookiesMadePerHour += PatsCookieShop.allStores[j].cookiesSoldHour[i]; ///looks at stores array and finds how many stores then for each index of store it will
       customerTotalPerHour += PatsCookieShop.allStores[j].customersPerHour[i];//*from above* look at index of peramiter and give back arguement.
@@ -108,11 +108,11 @@ function makeNewCookieShop(event){
   var newAddress = event.target.address.value;
   var newMinCustomers = parseInt(event.target.minCustomers.value);
   var newMaxCusttomers = parseInt(event.target.maxCustomers.value);
-  var newAverageCookies = parseInt(event.target.averageCookies.value);
+  var newAverageCookies = parseFloat(event.target.averageCookies.value);
 
   new PatsCookieShop(newAddress, newMinCustomers, newMaxCusttomers, newAverageCookies);
   patsCookieShopTable.innerHTML = '';
-
+  event.target.reset();
   makeHeaderRow();
   renderAllShops();
   makeFooterOnTable();
